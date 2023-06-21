@@ -1,14 +1,24 @@
 "use client";
 import { TbPlaylist } from "react-icons/tb";
 import{ AiOutlinePlus } from "react-icons/ai";
+import useAuthModal from "@/hooks/useAuthModal";
+import { useUser } from "@/hooks/useUser";
+import useUploadModal from "@/hooks/useUploadModal";
 // import {songs} form "@/types"
 
 // interface LibraryProps{
 //     songs:Song[];
 // }
 const Library = () => {
+    const authModal = useAuthModal();
+    const uploadModal = useUploadModal();
+    const { user } = useUser();
     const onClick = () => {
-        // Handle Upload Later
+        if(!user){
+            return authModal.onOpen();
+        }
+
+        return uploadModal.onOpen();
 
     }
     return (
