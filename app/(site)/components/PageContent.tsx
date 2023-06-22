@@ -11,7 +11,7 @@ interface PageContentProps {
 const PageContent: React.FC<PageContentProps> = ({
   songs
 }) => {
-//   const onPlay = useOnPlay(songs);
+  // const onPlay = useOnPlay(songs);
 
   if (songs.length === 0) {
     return (
@@ -37,7 +37,7 @@ const PageContent: React.FC<PageContentProps> = ({
     >
       {songs.map((item) => (
         <SongItem 
-          onClick={(id: string) => onPlay(id)} 
+          onClick={() => {}} 
           key={item.id} 
           data={item}
         />
